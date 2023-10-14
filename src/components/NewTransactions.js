@@ -19,6 +19,10 @@ const NewTransactions = ({ setTransactions }) => {
   const [amount, setAmount] = useState();
 
   const addTransaction = () => {
+    if (!/^-?\d*\.?\d+$/.test(amount)) {
+      alert("Please enter a valid number for the amount.");
+      return;
+    }
     const transaction = {
       id: Math.floor(Math.random() * 100000),
       text: text,
@@ -37,6 +41,7 @@ const NewTransactions = ({ setTransactions }) => {
       <TextField
         variant="filled"
         label="Enter Amount"
+        value={amount}
         onChange={(e) => setAmount(e.target.value)}
       />
       <Button variant="contained" onClick={() => addTransaction()}>
