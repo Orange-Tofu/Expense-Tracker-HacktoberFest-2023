@@ -5,6 +5,7 @@ import NewTransactions from "./components/NewTransactions";
 import Transactions from "./components/Transactions";
 import { useState } from "react";
 import { Typography, styled, Box } from "@mui/material";
+import Typewriter from 'typewriter-effect';
 
 const Header = styled(Typography)`
 margin : 10px 0 ;
@@ -35,7 +36,16 @@ function App() {
   ]);
   return (
     <Box className="App">
-      <Header>Expense Tracker</Header>
+      
+      <Header>
+        <Typewriter
+            options={{
+            strings: ['Expense Tracker'],
+            autoStart: true,
+            loop: true,
+          }}
+        />
+      </Header>
 
       <Component>
         <Box>
