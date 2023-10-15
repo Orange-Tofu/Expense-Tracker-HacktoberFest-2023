@@ -6,7 +6,7 @@ const Transactions = ({transactions}) =>{
         <Box>
                <Typography variant="h5"> Transaction History </Typography> 
                <Divider/>
-               <List>
+               <List style={{maxHeight: '65vh', overflow: 'auto'}} >
                 {
                     transactions.map(transaction => (
                             <Transaction transaction={transaction}/>
