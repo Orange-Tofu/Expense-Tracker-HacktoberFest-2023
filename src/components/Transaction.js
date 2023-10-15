@@ -6,10 +6,18 @@ const Detail = styled(ListItem)`
 const Transaction = ({ transaction }) => {
   return (
     <>
-      <Detail style={{ background: "grey" }}>
-        <ListItemText>{transaction.text}</ListItemText>
-        <ListItemText>{transaction.amount}</ListItemText>
-      </Detail>
+      {
+        transaction.amount >= 0 ?
+        <Detail style={{ background: "green" }}>
+          <ListItemText>{transaction.text}</ListItemText>
+          <ListItemText>{transaction.amount}</ListItemText>
+        </Detail>
+        :
+        <Detail style={{ background: "red" }}>
+          <ListItemText>{transaction.text}</ListItemText>
+          <ListItemText>{transaction.amount}</ListItemText>
+        </Detail>
+      }
     </>
   );
 };
