@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Typography, TextField, Button, styled, Alert } from "@mui/material";
+import { Box, Typography, TextField, Button, styled, Alert, Input } from "@mui/material";
 
 const Container = styled(Box)`
   display: flex;
@@ -12,6 +12,13 @@ const Container = styled(Box)`
     margin-top: 40px;
   }
 `;
+
+const InputAmount = styled(Input)`
+  background: #f0f0f0;
+  padding : 15px 15px;
+  height: 55px;
+`;
+
 
 const NewTransactions = ({ setTransactions }) => {
   const [text, setText] = useState("");
@@ -55,9 +62,9 @@ const NewTransactions = ({ setTransactions }) => {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <TextField
-        variant="filled"
-        label="Enter Amount"
+      <InputAmount
+        type="number"
+        placeholder="Enter Amount"
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
       />
