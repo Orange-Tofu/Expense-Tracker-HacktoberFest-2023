@@ -8,8 +8,8 @@ const Transactions = ({transactions}) =>{
                <Divider/>
                <List style={{maxHeight: '65vh', overflow: 'auto'}} >
                 {
-                    transactions.map(transaction => (
-                            <Transaction transaction={transaction}/>
+                    transactions.map((transaction,index) => (
+                            <Transaction transaction={transaction} key={index}/>
                     ))
                 }
                </List>

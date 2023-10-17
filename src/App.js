@@ -4,7 +4,7 @@ import ExpenseCard from "./components/ExpenseCard";
 import NewTransactions from "./components/NewTransactions";
 import Transactions from "./components/Transactions";
 import { useState } from "react";
-import { Typography, styled, Box } from "@mui/material";
+import { Typography, styled, Box,  createTheme, ThemeProvider } from "@mui/material";
 import Typewriter from 'typewriter-effect';
 
 const Header = styled(Typography)`
@@ -34,7 +34,18 @@ function App() {
     { id: 3, text: "Booze", amount: -3000 },
     { id: 4, text: "Bonus", amount: 6000 },
   ]);
+
+  const theme = createTheme({
+    typography: {
+      fontFamily: [
+        'Poppins',
+        'sans-serif'
+      ].join(','),
+    }
+  });
+
   return (
+    <ThemeProvider theme={theme}>
     <Box className="App">
       
       <Header>
@@ -47,7 +58,7 @@ function App() {
         />
       </Header>
 
-      <Component>
+      <Component style={{border:"1px solid #0000001A",borderRadius:"12px"}}>
         <Box>
           <Balance transactions={transactions} />
           <ExpenseCard transactions={transactions} />
@@ -58,6 +69,7 @@ function App() {
         </Box>
       </Component>
     </Box>
+    </ThemeProvider>
   );
 }
 
