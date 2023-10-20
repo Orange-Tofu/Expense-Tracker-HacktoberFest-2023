@@ -8,14 +8,15 @@ const Transaction = ({ transaction }) => {
     <>
       {
         transaction.amount >= 0 ?
-        <Detail style={{ background: "green" }}>
-          <ListItemText>{transaction.text}</ListItemText>
-          <ListItemText>{transaction.amount}</ListItemText>
+        <Detail style={{ background: "#8fe28f",borderRadius:'8px' }}>
+          
+          <ListItemText style={{width:'50%',justifyContent:'flex-start'}}>{transaction.text}</ListItemText>
+          <ListItemText style={{width:'50%',justifyContent:'flex-end'}}>{'+'+transaction.amount}</ListItemText>
         </Detail>
         :
-        <Detail style={{ background: "red" }}>
-          <ListItemText>{transaction.text}</ListItemText>
-          <ListItemText>{transaction.amount}</ListItemText>
+        <Detail style={{ background: "#ff9d9d",borderRadius:'8px' }}>
+          <ListItemText style={{width:'50%',justifyContent:'flex-start'}}>{transaction.text}</ListItemText>
+          <ListItemText style={{width:'50%',justifyContent:'flex-end'}}>{transaction.amount}</ListItemText>
         </Detail>
       }
     </>
